@@ -1,0 +1,1 @@
+giftoto -f ff4warn2.gif -m ff4warn2.map -s ff4warn2.set -c ff4warn2.col
