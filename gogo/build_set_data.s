@@ -28,7 +28,7 @@ SET_8_BIT_AX()
 
 lda $04
 and #$01
-beq put_tile_into_pre_tileset
+bne put_tile_into_pre_tileset
 
 SET_16_BIT_AX()
 phy
@@ -43,24 +43,34 @@ bne end
 
 phx
 phy
-lda #$FF00
-ldy #$0010
-_begin_copy
+ldy #$0008
 ldx $18
-sta $7EE020,x
-sta $7EE120,x
-inc $18
-inc $18
+_begin_copy
+
+lda #$F0F0
+sta $7EE000,x
+lda #$0F0F
+sta $7EE100,x
+inx
+inx
 dey
 cpy #$0000
 bne _begin_copy
 
+;lda @line_jump_count
+;clc
+;adc #$0010
+;sta @line_jump_count
+
+
 ply
 plx
+
+
 inc $04
 
 SET_8_BIT_AX()
-bra end
+;bra end
 put_tile_into_pre_tileset
 lda $04
 lsr

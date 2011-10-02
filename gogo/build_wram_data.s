@@ -50,9 +50,12 @@ adc $18
 ; on le stocke et on retourne dans la routine originale
 sta $18
 
+;bra finale2
 
 
-
-
+lda $18
+clc
+adc @line_jump_count
+sta $18
 
 jmp @ret_correct_wram_pos
