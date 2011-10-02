@@ -1,0 +1,15 @@
+;===================================================================
+; Top Battle CosmeticZ
+; par ManZ (le titre est aussi de moi :p)
+;===================================================================
+
+.incsrc "asm2ips.asm"
+.startfile (HI,NO)
+.detect on
+
+.incsrc "invmenu.inc"
+.incsrc "combats.inc"
+.incsrc "h.inc"
+.incsrc "iteff.inc"
+
+.endfile (0)
