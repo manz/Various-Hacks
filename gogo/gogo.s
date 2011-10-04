@@ -1,15 +1,5 @@
 .lowrom2
 
-#define mz_stack 0x7EDE00
-#define line_jump_count mz_stack+2
-
-;$81/85F6 BF 00 D0 87 LDA $87D000,x[$87:D0BE] A:00BE X:00BE Y:009A P:envmxdIzc
-;deroutage init
-
-*=0x8185F6
-jmp @mz_init
-ret_mz_init
-
 ; deroutage
 ; lda $14
 ; sta $18
@@ -48,6 +38,5 @@ jmp @correct_tilemap_index
 *=0x88BE00
 #include "build_wram_data.s"
 #include "build_set_data.s"
-#include "init.s"
 ;include(`build_wram_data.s')
 ;include(`build_set_data.s')

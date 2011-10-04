@@ -39,7 +39,6 @@ ply
 and #$00FF
 cmp #$00FF
 bne end
-;inc $04
 
 phx
 phy
@@ -56,11 +55,6 @@ inx
 dey
 cpy #$0000
 bne _begin_copy
-
-;lda @line_jump_count
-;clc
-;adc #$0010
-;sta @line_jump_count
 
 
 ply

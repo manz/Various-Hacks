@@ -1,19 +1,6 @@
 ; calcul de l'index au quel la routine ecrit les 16 octets
 correct_wram_pos
 
-/*
-lda $04
-and $01
-beq finish
-lda #$0020
-clc
-adc $14
-sta $14
-
-finish
-*/
-
-
 ; on charge l'index "original"
 lda $14
 
@@ -48,14 +35,6 @@ clc
 adc $18
 
 ; on le stocke et on retourne dans la routine originale
-sta $18
-
-;bra finale2
-
-
-lda $18
-clc
-adc @line_jump_count
 sta $18
 
 jmp @ret_correct_wram_pos
