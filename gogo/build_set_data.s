@@ -1,4 +1,3 @@
-; handy macroes
 
 #define SET_8_BIT_A()   sep #$20 : .as
 #define SET_16_BIT_A()  rep #$20 : .al
@@ -19,10 +18,17 @@ $81/8624 C9 FF 00    CMP #$00FF              A:0064 X:000E Y:0004 P:envmxdIzC
 */
 SET_8_BIT_AX()
 
+/* $04 contient le nombre de tiles copiés dans la wram */
 lda $04
+
+/* Si c'est un nombre impair (l'index commence à zero) 
+ on peek les deux caractères suivants pour savoir si il
+ commence par FF
+ */
 and #$01
 bne put_tile_into_pre_tileset
 
+/* chargement des deux caractère suivants*/
 SET_16_BIT_AX()
 phy
 ldy $08
@@ -33,6 +39,7 @@ and #$00FF
 cmp #$00FF
 bne end
 
+/* On finit remplir le tile "courant"*/
 phx
 phy
 ldy #$0008
@@ -57,6 +64,7 @@ plx
 inc $04
 
 SET_8_BIT_AX()
+
 put_tile_into_pre_tileset
 lda $04
 lsr
