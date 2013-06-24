@@ -46,9 +46,9 @@ ldy #$0008
 ldx $18
 _begin_copy
 
-lda #$F0F0
+lda #$0000
 sta $7EE000,x
-lda #$0F0F
+lda #$0000
 sta $7EE100,x
 inx
 inx
